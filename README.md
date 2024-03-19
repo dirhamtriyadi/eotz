@@ -8,6 +8,10 @@
     ``
         cd eotz
     ``
+- Download dependency with composer
+``
+    composer install
+``
 - Copy .env.example to .env
 - Running php artisan key:generate
     ``
