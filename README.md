@@ -1,3 +1,34 @@
+## How to running web apps Kicau Mania Slur
+- Open your web server xampp or etc
+- Download this project or clone
+    ``
+        git clone git@github.com:dirhamtriyadi/eotz.git
+    ``
+- Change directory folder
+    ``
+        cd eotz
+    ``
+- Copy .env.example to .env
+- Running php artisan key:generate
+    ``
+      php artisan key:generate
+    ``
+- Running php artisan migrate
+    ``
+        php artisan migrate
+    ``
+- Running php artisan db:seed
+    ``
+        php artisan db:seed
+    ``
+- Last step running php artisan serve
+    ``
+        php artisan serve
+    ``
+
+### Yey server is running I'm very very happy, Thanks for developer for create this awesome project 😋😎
+## 
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
