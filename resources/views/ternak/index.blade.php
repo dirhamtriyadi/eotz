@@ -72,6 +72,7 @@
                                     <td>{{ $data->seri_indukan_betina }}</td>
                                     <td>
                                         <a href="{{ route('ternak.edit', $data->id) }}" class="btn btn-warning">Edit</a>
+                                        <a href="{{ route('ternak.print', $data->id) }}" class="btn btn-info">Print</a>
                                         <form action="{{ route('ternak.destroy', $data->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')

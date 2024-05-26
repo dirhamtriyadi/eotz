@@ -18,4 +18,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('dashboard', DashboardController::class);
 
     Route::resource('ternak', TernakController::class);
+    Route::get('ternak/{id}/print', [TernakController::class, 'print'])->name('ternak.print');
 });

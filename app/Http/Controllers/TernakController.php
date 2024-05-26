@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Ternak;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class TernakController extends Controller
 {
@@ -175,5 +177,28 @@ class TernakController extends Controller
         }
 
         return redirect()->route('ternak.index')->with('success', 'Data berhasil dihapus');
+    }
+
+    /**
+     * Print the specified resource from storage.
+     */
+    public function print($id)
+    {
+        $ternak = Ternak::findOrFail($id);
+
+        // return view('ternak.print', [
+        //     'ternak' => $ternak
+        // ]);
+
+        $pdf = Pdf::setPaper('a4', 'landscape')->loadView('ternak.print', [
+            'ternak' => $ternak
+        ]);
+
+        return $pdf->stream();
+
+        // dd($ternak);
+        // return view('ternak.print', [
+        //     'ternak' => $ternak
+        // ]);
     }
 }
