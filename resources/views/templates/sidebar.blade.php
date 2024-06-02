@@ -55,6 +55,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('artikel.index') }}" class="nav-link {{ Route::is('artikel.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>
+                            Artikel
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>

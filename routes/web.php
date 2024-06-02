@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TernakController;
+use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\Auth\AuthController;
 
 // Route::get('/', function () {
@@ -19,4 +20,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('ternak', TernakController::class);
     Route::get('ternak/{id}/print', [TernakController::class, 'print'])->name('ternak.print');
+
+    Route::resource('artikel', ArtikelController::class);
 });
