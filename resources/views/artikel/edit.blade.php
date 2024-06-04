@@ -40,6 +40,16 @@
             </div>
             <div class="card-body">
                 <a href="{{ route('artikel.index') }}" class="btn btn-warning mb-3">Kembali</a>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                @endif
                 <form action="{{ route('artikel.update', $artikel->id) }}" method="POST">
                     @csrf
                     @method('PUT')
