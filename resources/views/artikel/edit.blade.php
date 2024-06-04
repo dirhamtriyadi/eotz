@@ -44,7 +44,7 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label for="judul" class="form-label">Seri Burung</label>
+                        <label for="judul" class="form-label">Judul</label>
                         <input type="text" class="form-control" name="judul" id="judul"
                             placeholder="Judul Artikel" value="{{ old('judul') ?  old('judul') : $artikel->judul }}">
                     </div>
