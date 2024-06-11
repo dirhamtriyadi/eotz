@@ -103,7 +103,7 @@
 
                 <div class="row gy-4">
 
-                    @foreach ($artikels as $artikel => $data)
+                    @forelse ($artikels as $artikel => $data)
                         <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
                             <div class="about-content">
                                 <h3>{{ $data->judul }}</h3>
@@ -112,7 +112,16 @@
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                            <div class="about-content">
+                                <h3>Kosong</h3>
+                                <p>kosong</p>
+                                <a href="#" class="read-more"><span>Read More</span><i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    @endforelse
 
                 </div>
 
@@ -136,8 +145,9 @@
                     @forelse ($ternaks as $ternak => $data)
                         <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item position-relative">
-                                <h4><a href="service-details.html" class="stretched-link">{{ $data->seri_burung }}</a></h4>
+                                <h4><a href="#" class="stretched-link">{{ $data->seri_burung }}</a></h4>
                                 <p>
+                                    <strong>Peternak:</strong> {{ $data->user->name }}<br>
                                     <strong>Nomor Ring:</strong> {{ $data->nomor_ring }}<br>
                                     <strong>Jenis Kelamin:</strong> {{ $data->jenis_kelamin }}<br>
                                     <strong>Umur:</strong> {{ $data->umur() }}<br>

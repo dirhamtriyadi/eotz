@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $artikels = Artikel::latest()->get();
-        $ternaks = Ternak::latest()->get();
+        $ternaks = Ternak::with('user')->latest()->get();
 
         return view('index', [
             'artikels' => $artikels,
