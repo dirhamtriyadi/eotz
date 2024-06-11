@@ -148,7 +148,7 @@
                         <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
                             <div class="about-content">
                                 <h3>{{ $data->judul }}</h3>
-                                <p>{!! substr($data->isi, 0, 30) !!}</p>
+                                {{-- <p>{!! substr($data->isi, 0, 30) !!}</p> --}}
                                 <a href="{{ route('artikel.show', $data->id) }}" class="read-more"><span>Read
                                         More</span><i class="bi bi-arrow-right"></i></a>
                             </div>

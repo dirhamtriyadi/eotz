@@ -18,4 +18,13 @@ class HomeController extends Controller
             'ternaks' => $ternaks
         ]);
     }
+
+    public function show_artikel($id)
+    {
+        $artikel = Artikel::findOrFail($id);
+
+        return view('home.artikel', [
+            'artikel' => $artikel
+        ]);
+    }
 }
