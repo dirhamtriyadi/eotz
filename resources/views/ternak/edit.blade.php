@@ -77,7 +77,7 @@
                         <label for="indukan_jantan" class="form-label">Indukan Jantan</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="indukan_jantan">
+                                <input type="file" class="custom-file-input" id="indukan_jantan" name="indukan_jantan">
                                 <label class="custom-file-label" for="indukan_jantan">Pilih File</label>
                             </div>
                             <div class="input-group-append">
@@ -93,7 +93,7 @@
                         <label for="indukan_betina" class="form-label">Indukan Betina</label>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="indukan_betina">
+                                <input type="file" class="custom-file-input" id="indukan_betina" name="indukan_betina">
                                 <label class="custom-file-label" for="indukan_betina">Pilih File</label>
                             </div>
                             <div class="input-group-append">

@@ -143,6 +143,10 @@ class TernakController extends Controller
         $ternak->seri_indukan_betina = $validatedData['seri_indukan_betina'];
 
         if ($request->hasFile('indukan_jantan')) {
+            $path = public_path('images/ternak/indukan_jantan/' . $ternak->indukan_jantan);
+            if (file_exists($path)) {
+                unlink($path);
+            }
             $file = $request->file('indukan_jantan');
             $filename = date('Y-m-d') . '-' . $ternak->seri_burung . '-' . $file->getClientOriginalName();
             $destinationPath = public_path('/images/ternak/indukan_jantan');
@@ -152,6 +156,10 @@ class TernakController extends Controller
         }
 
         if ($request->hasFile('indukan_betina')) {
+            $path = public_path('images/ternak/indukan_betina/' . $ternak->indukan_betina);
+            if (file_exists($path)) {
+                unlink($path);
+            }
             $file = $request->file('indukan_betina');
             $filename = date('Y-m-d') . '-' . $ternak->seri_burung . '-' . $file->getClientOriginalName();
             $destinationPath = public_path('/images/ternak/indukan_betina');
