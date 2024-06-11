@@ -90,26 +90,31 @@
                                     aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
                                     aria-label="Slide 4"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
                                     aria-label="Slide 5"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/787551_9-5-2021_16-30-4.webp" class="d-block w-100" alt="kenari">
+                                    <img src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/787551_9-5-2021_16-30-4.webp"
+                                        class="d-block w-100" alt="kenari">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://asset.kompas.com/crops/ywerGhcgmmGpbWVsF7z3bEd56dU=/102x57:936x613/1200x800/data/photo/2022/10/31/635fad77154d1.jpg" class="d-block w-100" alt="kenari">
+                                    <img src="https://asset.kompas.com/crops/ywerGhcgmmGpbWVsF7z3bEd56dU=/102x57:936x613/1200x800/data/photo/2022/10/31/635fad77154d1.jpg"
+                                        class="d-block w-100" alt="kenari">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://www.blibli.com/friends-backend/wp-content/uploads/2023/03/B300235-Cover-Fakta-Burung-Kenari.jpg" class="d-block w-100" alt="kenari">
+                                    <img src="https://www.blibli.com/friends-backend/wp-content/uploads/2023/03/B300235-Cover-Fakta-Burung-Kenari.jpg"
+                                        class="d-block w-100" alt="kenari">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/09/18/2302796875.jpg" class="d-block w-100" alt="kenari">
+                                    <img src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/09/18/2302796875.jpg"
+                                        class="d-block w-100" alt="kenari">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/07/16081847/Cara-Merawat-Burung-Kenari-Agar-Suaranya-Merdu.jpg" class="d-block w-100" alt="kenari">
+                                    <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/07/16081847/Cara-Merawat-Burung-Kenari-Agar-Suaranya-Merdu.jpg"
+                                        class="d-block w-100" alt="kenari">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button"
@@ -180,6 +185,18 @@
             </div><!-- End Section Title -->
 
             <div class="container">
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <form action="{{ route('index') }}" method="GET">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="search" placeholder="Cari ternak berdasarkan nomor ring" value="{{ $search ? $search : '' }}" {{ $search ? 'autofocus' : '' }}>
+                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cari</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row gy-4">
 
@@ -204,7 +221,7 @@
                         <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item position-relative">
                                 <div class="icon"><i class="bi bi-activity icon"></i></div>
-                                <h4><a href="service-details.html" class="stretched-link">Lorem Ipsum</a></h4>
+                                <h4><a href="#" class="stretched-link">Lorem Ipsum</a></h4>
                                 <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                             </div>
                         </div><!-- End Service Item -->

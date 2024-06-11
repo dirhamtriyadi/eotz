@@ -8,14 +8,26 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $artikels = Artikel::latest()->get();
-        $ternaks = Ternak::with('user')->latest()->get();
+        if ($request->search) {
+            // $artikels = Artikel::where('judul', 'like', '%' . $request->search . '%')
+            //     ->orWhere('isi', 'like', '%' . $request->search . '%')
+            //     ->get();
+            $artikels = Artikel::latest()->get();
+
+            $ternaks = Ternak::where('nomor_ring', 'like', '%' . $request->search . '%')
+                ->orWhere('seri_burung', 'like', '%' . $request->search . '%')
+                ->get();
+        } else {
+            $artikels = Artikel::latest()->get();
+            $ternaks = Ternak::latest()->get();
+        }
 
         return view('index', [
             'artikels' => $artikels,
-            'ternaks' => $ternaks
+            'ternaks' => $ternaks,
+            'search' => $request->search
         ]);
     }
 
