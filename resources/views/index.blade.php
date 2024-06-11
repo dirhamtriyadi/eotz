@@ -82,8 +82,49 @@
                         </div>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('arsha/assets') }}/img/hero-img.png" class="img-fluid animated"
-                            alt="">
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                                    aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                                    aria-label="Slide 5"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/787551_9-5-2021_16-30-4.webp" class="d-block w-100" alt="kenari">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://asset.kompas.com/crops/ywerGhcgmmGpbWVsF7z3bEd56dU=/102x57:936x613/1200x800/data/photo/2022/10/31/635fad77154d1.jpg" class="d-block w-100" alt="kenari">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://www.blibli.com/friends-backend/wp-content/uploads/2023/03/B300235-Cover-Fakta-Burung-Kenari.jpg" class="d-block w-100" alt="kenari">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/09/18/2302796875.jpg" class="d-block w-100" alt="kenari">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/07/16081847/Cara-Merawat-Burung-Kenari-Agar-Suaranya-Merdu.jpg" class="d-block w-100" alt="kenari">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        {{-- <img src="{{ asset('arsha/assets') }}/img/hero-img.png" class="img-fluid animated"
+                            alt=""> --}}
                     </div>
                 </div>
             </div>
@@ -108,8 +149,8 @@
                             <div class="about-content">
                                 <h3>{{ $data->judul }}</h3>
                                 <p>{!! substr($data->isi, 0, 30) !!}</p>
-                                <a href="{{ route('artikel.show', $data->id) }}" class="read-more"><span>Read More</span><i
-                                        class="bi bi-arrow-right"></i></a>
+                                <a href="{{ route('artikel.show', $data->id) }}" class="read-more"><span>Read
+                                        More</span><i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     @empty
