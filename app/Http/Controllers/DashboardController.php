@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ternak;
+use App\Models\Artikel;
+use App\Models\Peternak;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,7 +15,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $ternak = Ternak::latest()->count();
+        $artikel = Artikel::latest()->count();
+        $peternak = Peternak::with('user')->count();
+        $user = User::latest()->count();
+
+        if (!auth()->user()->hasRole('admin')) {
+            $ternak = Ternak::where('user_id', auth()->id())->count();
+            $artikel = Artikel::where('created_by', auth()->id())->count();
+        }
+
+        return view('dashboard.index', [
+            'ternak' => $ternak,
+            'artikel' => $artikel,
+            'peternak' => $peternak,
+            'user' => $user
+        ]);
     }
 
     /**
