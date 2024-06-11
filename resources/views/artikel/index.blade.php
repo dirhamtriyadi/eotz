@@ -48,7 +48,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Judul</th>
-                                <th>Isi</th>
+                                {{-- <th>Isi</th> --}}
                                 <th>Created By</th>
                                 <th>Updated By</th>
                                 <th>Aksi</th>
@@ -59,7 +59,7 @@
                                 <tr>
                                     <td>{{ $artikel + 1 }}</td>
                                     <td>{{ $data->judul }}</td>
-                                    <td>{!! substr($data->isi, 0, 30) !!}</td>
+                                    {{-- <td>{{ substr($data->isi, 0, 30) }}</td> --}}
                                     <td>{{ $data->createdBy->name }}</td>
                                     <td>{{ $data->updatedBy->name }}</td>
                                     <td>
