@@ -16,6 +16,10 @@ class TernakController extends Controller
     {
         $ternaks = Ternak::latest()->get();
 
+        if (!auth()->user()->hasRole('admin')) {
+            $ternaks = $ternaks->where('user_id', auth()->id());
+        }
+
         return view('ternak.index', [
             'ternaks' => $ternaks
         ]);
@@ -99,6 +103,10 @@ class TernakController extends Controller
     {
         $ternak = Ternak::findOrFail($id);
 
+        if (!auth()->user()->hasRole('admin') && $ternak->user_id != auth()->id()) {
+            return redirect()->route('ternak.index')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        }
+
         return view('ternak.edit', [
             'ternak' => $ternak
         ]);
@@ -122,6 +130,11 @@ class TernakController extends Controller
         $validatedData['user_id'] = auth()->id();
 
         $ternak = Ternak::findOrFail($id);
+
+        if (!auth()->user()->hasRole('admin') && $ternak->user_id != auth()->id()) {
+            return redirect()->route('ternak.index')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        }
+
         $ternak->seri_burung = $validatedData['seri_burung'];
         $ternak->jenis_kelamin = $validatedData['jenis_kelamin'];
         $ternak->tanggal_netas = $validatedData['tanggal_netas'];
@@ -158,6 +171,11 @@ class TernakController extends Controller
     public function destroy($id)
     {
         $ternak = Ternak::findOrFail($id);
+
+        if (!auth()->user()->hasRole('admin') && $ternak->user_id != auth()->id()) {
+            return redirect()->route('ternak.index')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        }
+
         $ternak->delete();
 
         $indukan_jantan = $ternak->indukan_jantan;

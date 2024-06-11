@@ -14,6 +14,10 @@ class ArtikelController extends Controller
     {
         $artikels = Artikel::latest()->get();
 
+        if (!auth()->user()->hasRole('admin')) {
+            $artikels = $artikels->where('created_by', auth()->id());
+        }
+
         return view('artikel.index', [
             'artikels' => $artikels
         ]);
@@ -61,6 +65,10 @@ class ArtikelController extends Controller
     {
         $artikel = Artikel::findOrFail($id);
 
+        if (!auth()->user()->hasRole('admin') && $artikel->created_by != auth()->id()) {
+            return redirect()->route('artikel.index')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        }
+
         return view('artikel.edit', [
             'artikel' => $artikel
         ]);
@@ -79,6 +87,11 @@ class ArtikelController extends Controller
         $validatedData['updated_by'] = auth()->id();
 
         $artikel = Artikel::findOrFail($id);
+
+        if (!auth()->user()->hasRole('admin') && $artikel->created_by != auth()->id()) {
+            return redirect()->route('artikel.index')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        }
+
         $artikel->update($validatedData);
 
         return redirect()->route('artikel.index')->with('success', 'Artikel berhasil diubah');
@@ -90,6 +103,10 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         $artikel = Artikel::findOrFail($id);
+        if(!auth()->user()->hasRole('admin') && $artikel->created_by != auth()->id()) {
+            return redirect()->route('artikel.index')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        }
+
         $artikel->delete();
 
         return redirect()->route('artikel.index')->with('success', 'Artikel berhasil dihapus');
