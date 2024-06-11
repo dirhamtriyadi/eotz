@@ -50,6 +50,7 @@
                                 <th>Nomor Ring</th>
                                 <th>Seri Burung</th>
                                 <th>Jenis Kelamin</th>
+                                <th>Umur</th>
                                 <th>Tanggal Netas</th>
                                 <th>Indukan Jantan</th>
                                 <th>Seri Indukan Jantan</th>
@@ -65,6 +66,7 @@
                                     <td>{{ $data->nomor_ring }}</td>
                                     <td>{{ $data->seri_burung }}</td>
                                     <td>{{ $data->jenis_kelamin }}</td>
+                                    <td>{{ $data->umur() }}</td>
                                     <td>{{ $data->tanggal_netas }}</td>
                                     <td><img alt="{{ $data->seri_indukan_jantan }}" src="/images/ternak/indukan_jantan/{{ $data->indukan_jantan }}" width="100px"/></td>
                                     <td>{{ $data->seri_indukan_jantan }}</td>
