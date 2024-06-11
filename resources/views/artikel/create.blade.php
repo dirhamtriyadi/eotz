@@ -1,6 +1,7 @@
 @extends('templates.main')
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('richtexteditor') }}/rte_theme_default.css" />
 @endpush
 
 @section('content-header')
@@ -59,7 +60,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="isi" class="form-label">Isi Artikel</label>
-                        <textarea class="form-control" name="isi" id="isi" rows="3"
+                        <textarea id="inp_editor1" class="form-control" name="isi" id="isi" rows="3"
                             placeholder="Isi Artikel">{{ old('isi') }}</textarea>
                     </div>
                     <div class="mb-3 d-flex justify-content-end">
@@ -82,7 +83,12 @@
     <!-- bs-custom-file-input -->
     <script src="{{ asset('adminlte') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
+    <script type="text/javascript" src="{{ asset('richtexteditor') }}//rte.js"></script>
+    <script type="text/javascript" src='{{ asset('richtexteditor') }}//plugins/all_plugins.js'></script>
+
     <script>
+        var editor1 = new RichTextEditor("#inp_editor1");
+
         $(function() {
             bsCustomFileInput.init();
         });

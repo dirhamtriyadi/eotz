@@ -59,7 +59,7 @@
                                 <tr>
                                     <td>{{ $artikel + 1 }}</td>
                                     <td>{{ $data->judul }}</td>
-                                    <td>{{ $data->isi }}</td>
+                                    <td>{!! substr($data->isi, 0, 30) !!}</td>
                                     <td>{{ $data->createdBy->name }}</td>
                                     <td>{{ $data->updatedBy->name }}</td>
                                     <td>
