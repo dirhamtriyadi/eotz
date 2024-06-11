@@ -80,7 +80,7 @@ class ArtikelController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'judul' => 'required|unique:artikel,judul,except,id',
+            'judul' => 'required|unique:artikel,judul,' . $id . ',id',
             'isi' => 'required',
         ]);
 
