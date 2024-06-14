@@ -23,7 +23,15 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
+            if (Auth::user()->is_active == 0) {
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'Akun anda belum diaktifkan oleh admin.',
+                ]);
+            }
             $request->session()->regenerate();
+            Auth::user()->last_login_at = now();
+            Auth::user()->save();
 
             return redirect()->intended('dashboard');
         }

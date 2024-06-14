@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -49,5 +50,10 @@ class User extends Authenticatable
     public function peternak()
     {
         return $this->hasOne(Peternak::class);
+    }
+
+    public function last_login_at()
+    {
+        return Carbon::parse($this->last_login_at)->diff(Carbon::now())->format('%d hari yang lalu');
     }
 }

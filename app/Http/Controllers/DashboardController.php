@@ -19,6 +19,14 @@ class DashboardController extends Controller
         $artikel = Artikel::latest()->count();
         $peternak = Peternak::with('user')->count();
         $user = User::latest()->count();
+        $peternakActive = Peternak::with('user')->whereHas('user', function($q) {
+            $q->where('is_active', 1);
+        })->count();
+        $peternakNotActive = Peternak::with('user')->wherehas('user', function($q) {
+            $q->where('is_active', 0);
+        })->count();
+        $userActive = User::where('is_active', 1)->count();
+        $userNotActive = User::where('is_active', 0)->count();
 
         if (!auth()->user()->hasRole('admin')) {
             $ternak = Ternak::where('user_id', auth()->id())->count();
@@ -29,7 +37,11 @@ class DashboardController extends Controller
             'ternak' => $ternak,
             'artikel' => $artikel,
             'peternak' => $peternak,
-            'user' => $user
+            'user' => $user,
+            'peternakActive' => $peternakActive,
+            'peternakNotActive' => $peternakNotActive,
+            'userActive' => $userActive,
+            'userNotActive' => $userNotActive,
         ]);
     }
 

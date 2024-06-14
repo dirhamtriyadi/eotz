@@ -50,6 +50,8 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Status</th>
+                                <th>Terakhir Online</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -60,6 +62,14 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->roles->pluck('name') }}</td>
+                                    <td>
+                                        @if ($data->is_active == 1)
+                                            <span class="badge badge-success">Aktif</span>
+                                        @else
+                                            <span class="badge badge-danger">Tidak Aktif</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $data->last_login_at() }}</td>
                                     <td>
                                         <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning">Edit</a>
                                         <form action="{{ route('user.destroy', $data->id) }}" method="POST" class="d-inline">

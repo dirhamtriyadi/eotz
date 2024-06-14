@@ -50,6 +50,8 @@
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th>No HP</th>
+                                <th>Status</th>
+                                <th>Terakhir Online</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -62,6 +64,14 @@
                                     <td>@isset($data->peternak->no_hp)
                                         {{ $data->peternak->no_hp }}
                                     @endisset</td>
+                                    <td>
+                                        @if ($data->is_active == 1)
+                                            <span class="badge badge-success">Aktif</span>
+                                        @else
+                                            <span class="badge badge-danger">Tidak Aktif</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $data->last_login_at() }}</td>
                                     <td>
                                         <a href="{{ route('peternak.edit', $data->id) }}" class="btn btn-warning">Edit</a>
                                         <form action="{{ route('peternak.destroy', $data->id) }}" method="POST" class="d-inline">
