@@ -11,7 +11,6 @@ use App\Http\Controllers\PeternakController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/artikel/{id}', [HomeController::class, 'show_artikel'])->name('show_artikel');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate')->middleware('guest');
@@ -28,7 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('artikel', ArtikelController::class);
 });
 
+
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::resource('peternak', PeternakController::class);
     Route::resource('user', UserController::class);
 });
+
+Route::get('/artikel/{id}', [HomeController::class, 'show_artikel'])->name('show_artikel');
