@@ -54,6 +54,8 @@ class User extends Authenticatable
 
     public function last_login_at()
     {
-        return Carbon::parse($this->last_login_at)->diff(Carbon::now())->format('%d hari yang lalu');
+        Carbon::setLocale('id');
+        return Carbon::parse($this->last_login_at)->diffForHumans();
+        // return Carbon::parse($this->last_login_at)->diff(Carbon::now())->format('%d hari yang lalu');
     }
 }

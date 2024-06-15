@@ -31,6 +31,8 @@ class Ternak extends Model
 
     public function umur()
     {
-        return Carbon::parse($this->tanggal_netas)->diff(Carbon::now())->format('%y tahun, %m bulan dan %d hari');
+        Carbon::setLocale('id');
+        return Carbon::parse($this->tanggal_netas)->diffForHumans();
+        // return Carbon::parse($this->tanggal_netas)->diff(Carbon::now())->format('%y tahun, %m bulan dan %d hari');
     }
 }
