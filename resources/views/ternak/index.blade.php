@@ -56,6 +56,7 @@
                                 <th>Seri Indukan Jantan</th>
                                 <th>Indukan Betina</th>
                                 <th>Seri Indukan Betina</th>
+                                <th>Created By</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -72,6 +73,7 @@
                                     <td>{{ $data->seri_indukan_jantan }}</td>
                                     <td><img alt="{{ $data->seri_indukan_betina }}" src="/images/ternak/indukan_betina/{{ $data->indukan_betina }}" width="100px" /></td>
                                     <td>{{ $data->seri_indukan_betina }}</td>
+                                    <td>{{ $data->user->name }}</td>
                                     <td>
                                         <a href="{{ route('ternak.edit', $data->id) }}" class="btn btn-warning">Edit</a>
                                         <a href="{{ route('ternak.print', $data->id) }}" class="btn btn-info">Print</a>
