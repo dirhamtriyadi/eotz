@@ -108,4 +108,13 @@ class PeternakController extends Controller
 
         return redirect()->route('peternak.index')->with('success', 'Peternak deleted successfully.');
     }
+
+    public function update_status($id)
+    {
+        $user = User::findOrFail($id);
+        $user->is_active = !$user->is_active;
+        $user->save();
+
+        return redirect()->route('peternak.index')->with('success', 'User status updated successfully.');
+    }
 }

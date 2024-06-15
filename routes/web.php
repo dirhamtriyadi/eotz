@@ -30,7 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::resource('peternak', PeternakController::class);
+    Route::put('peternak/{id}/update-status', [PeternakController::class, 'update_status'])->name('peternak.update_status');
     Route::resource('user', UserController::class);
+    Route::put('user/{id}/update-status', [UserController::class, 'update_status'])->name('user.update_status');
 });
 
 Route::get('/artikel/{id}', [HomeController::class, 'show_artikel'])->name('show_artikel');

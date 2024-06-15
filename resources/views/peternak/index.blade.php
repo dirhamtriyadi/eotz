@@ -73,12 +73,44 @@
                                     </td>
                                     <td>{{ $data->last_login_at() }}</td>
                                     <td>
-                                        <a href="{{ route('peternak.edit', $data->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('peternak.destroy', $data->id) }}" method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
-                                        </form>
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-info dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-expanded="false">
+                                                Aksi
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                {{-- <li>
+                                                    <a class="dropdown-item" href="{{ route('peternak.show', $data->id) }}">
+                                                        Detail
+                                                    </a>
+                                                </li> --}}
+                                                <li>
+                                                    @if ($data->is_active == 0)
+                                                        <form action="{{ route('peternak.update_status', $data->id) }}" method="post">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <button type="submit" class="dropdown-item">Aktifkan</button>
+                                                        </form>
+                                                    @else
+                                                        <form action="{{ route('peternak.update_status', $data->id) }}" method="post">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <button type="submit" class="dropdown-item">Nonaktifkan</button>
+                                                        </form>
+                                                    @endif
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('peternak.edit', $data->id) }}" class="dropdown-item">Edit</a>
+                                                </li>
+                                                <li>
+                                                    <form action="{{ route('peternak.destroy', $data->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item">Hapus</button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
