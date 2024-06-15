@@ -43,7 +43,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-            <a href="{{ route('index') }}" class="logo d-flex align-items-center me-auto">
+            <a href="{{ route('home.index') }}" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="{{ asset('arsha/assets') }}/img/logo.png" alt=""> -->
                 <h1 class="sitename">{{ config('app.name') }}</h1>
@@ -160,7 +160,7 @@
                             <div class="about-content">
                                 <h3>{{ $data->judul }}</h3>
                                 {{-- <p>{!! substr($data->isi, 0, 30) !!}</p> --}}
-                                <a href="{{ route('artikel.show', $data->id) }}" class="read-more"><span>Read
+                                <a href="{{ route('home.show_artikel', $data->id) }}" class="read-more"><span>Read
                                         More</span><i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -194,7 +194,7 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                            <form action="{{ route('index') }}" method="GET">
+                            <form action="{{ route('home.index') }}" method="GET">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="search" placeholder="Cari ternak berdasarkan nomor ring" value="{{ $search ? $search : '' }}" {{ $search ? 'autofocus' : '' }}>
                                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cari</button>
