@@ -69,7 +69,7 @@
                                             <span class="badge badge-danger">Tidak Aktif</span>
                                         @endif
                                     </td>
-                                    <td>{{ $data->last_login_at() }}</td>
+                                    <td>{{ $data->last_login_at ? $data->last_login_at() : "User belum login" }}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-info dropdown-toggle" type="button"
