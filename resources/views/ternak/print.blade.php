@@ -40,7 +40,7 @@
         }
 
         .judul {
-            margin-bottom: 20px;
+            margin-bottom: 100px;
         }
 
         .isi {
@@ -49,7 +49,7 @@
         }
 
         .ttd {
-            margin-top: 20px;
+            margin-top: 120px;
         }
 
         .ttd-nama {
