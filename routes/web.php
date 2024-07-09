@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/home/artikel/{id}', [HomeController::class, 'show_artikel'])->name('home.show_artikel');
+Route::get('/home/ternak/{id}', [HomeController::class, 'show_ternak'])->name('home.show_ternak');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate')->middleware('guest');

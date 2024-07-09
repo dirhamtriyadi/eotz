@@ -209,16 +209,16 @@
                     @forelse ($ternaks as $ternak => $data)
                         <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item position-relative">
-                                <h4><a href="#" class="stretched-link">{{ $data->seri_burung }}</a></h4>
+                                <h4><a href="{{ route('home.show_ternak', $data->id) }}" class="stretched-link">{{ $data->seri_burung }}</a></h4>
                                 <p>
                                     <strong>Peternak:</strong> {{ $data->user->name }}<br>
                                     <strong>Nomor Ring:</strong> {{ $data->nomor_ring }}<br>
                                     <strong>Jenis Kelamin:</strong> {{ $data->jenis_kelamin }}<br>
                                     <strong>Umur:</strong> {{ $data->umur() }}<br>
                                     <strong>Tanggal Netas:</strong> {{ $data->tanggal_netas }}<br>
-                                    <strong>Indukan Jantan:</strong> {{ $data->indukan_jantan }}<br>
+                                    {{-- <strong>Indukan Jantan:</strong> {{ $data->indukan_jantan }}<br> --}}
                                     <strong>Seri Indukan Jantan:</strong> {{ $data->seri_indukan_jantan }}<br>
-                                    <strong>Indukan Betina:</strong> {{ $data->indukan_betina }}<br>
+                                    {{-- <strong>Indukan Betina:</strong> {{ $data->indukan_betina }}<br> --}}
                                     <strong>Seri Indukan Betina:</strong> {{ $data->seri_indukan_betina }}<br>
                                 </p>
                             </div>

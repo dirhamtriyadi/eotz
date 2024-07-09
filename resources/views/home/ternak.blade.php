@@ -72,22 +72,38 @@
 
     <main class="main">
 
-        <!-- Artikel Section -->
-        <section id="artikel" class="about section" style="margin-top: 5rem">
+        <!-- Ternak Section -->
+        <section id="ternak" class="about section" style="margin-top: 5rem">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Artikel</h2>
-                <p>Cara merawat ternak <strong>{{ $artikel->judul }}</strong></p>
+                <h2>Ternak</h2>
+                {{ asset('images/ternak/indukan_jantan/') }}/{{ $ternak->indukan_jantan }}
+                <p>Ternak <strong>{{ $ternak->judul }}</strong></p>
             </div><!-- End Section Title -->
 
             <div class="container">
                 <div id="div_editor1" >
-                    {!! $artikel->isi !!}
+                    <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item position-relative">
+                            <h4><a href="#" class="stretched-link">{{ $ternak->seri_burung }}</a></h4>
+                            <p>
+                                <strong>Peternak:</strong> {{ $ternak->user->name }}<br>
+                                <strong>Nomor Ring:</strong> {{ $ternak->nomor_ring }}<br>
+                                <strong>Jenis Kelamin:</strong> {{ $ternak->jenis_kelamin }}<br>
+                                <strong>Umur:</strong> {{ $ternak->umur() }}<br>
+                                <strong>Tanggal Netas:</strong> {{ $ternak->tanggal_netas }}<br>
+                                <strong>Gambar Indukan Jantan:</strong> <img src="{{ asset('images/ternak/indukan_jantan/'."/".$ternak->indukan_jantan) }}" alt="{{ $ternak->seri_burung }}" height="400px"><br>
+                                <strong>Seri Indukan Jantan:</strong> {{ $ternak->seri_indukan_jantan }}<br>
+                                <strong>Gambar Indukan Betina:</strong> <img src="{{ asset('images/ternak/indukan_betina/'."/".$ternak->indukan_betina) }}" alt="{{ $ternak->seri_burung }}" height="400px"><br>
+                                <strong>Seri Indukan Betina:</strong> {{ $ternak->seri_indukan_betina }}<br>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </section><!-- /Artikel Section -->
+        </section><!-- /Ternak Section -->
 
     </main>
 

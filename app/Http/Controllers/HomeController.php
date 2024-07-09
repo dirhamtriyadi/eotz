@@ -39,4 +39,13 @@ class HomeController extends Controller
             'artikel' => $artikel
         ]);
     }
+
+    public function show_ternak($id)
+    {
+        $ternak = Ternak::findOrFail($id);
+
+        return view('home.ternak', [
+            'ternak' => $ternak
+        ]);
+    }
 }
